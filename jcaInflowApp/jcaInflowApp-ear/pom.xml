@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-    <artifactId>jcaInflowApp</artifactId>
-    <groupId>org.jboss.please.work.mdbapp</groupId>
-    <version>1.0-SNAPSHOT</version>
-  </parent>
+        <artifactId>jcaInflowApp</artifactId>
+        <groupId>org.jboss.please.work.mdbapp</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
     <groupId>org.jboss.please.work.mdbapp</groupId>
     <artifactId>jcaInflowApp-ear</artifactId>
@@ -36,6 +36,18 @@
                 <configuration>
                     <version>6</version>
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <finalName>jcaInflowApp</finalName>
+                    <modules>
+                        <ejbModule>
+                            <groupId>org.jboss.please.work.mdbapp</groupId>
+                            <artifactId>jcaInflowApp-ejb</artifactId>
+                        </ejbModule>
+                        <rarModule>
+                            <groupId>org.javaee7</groupId>
+                            <artifactId>jca-ra</artifactId>
+                            <bundleFileName>jca-ra.rar</bundleFileName>
+                        </rarModule>
+                    </modules>
                 </configuration>
             </plugin>
         </plugins>
@@ -46,6 +58,12 @@
             <artifactId>jcaInflowApp-ejb</artifactId>
             <version>1.0-SNAPSHOT</version>
             <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>org.javaee7</groupId>
+            <artifactId>jca-ra</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>rar</type>
         </dependency>
     </dependencies>
 </project>
